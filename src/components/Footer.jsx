@@ -34,10 +34,10 @@ export default function Footer() {
         </div>
       </div>
     </div>
-      <div className="bg-pink-200 mt-10 py-10">
+      <div className="bg-[#F9CDFF] mt-10 py-10">
         <div className="max-w-6xl mx-auto px-6 md:px-12">
           <div className="text-center mb-6">
-            <p className="text-xs tracking-widest">KIRIJO</p>
+            <p className="text-xs tracking-widest " style={{ fontFamily: '"Poiret One", cursive' }}>Be a part of us</p>
             <h3 className="text-2xl mb-1">NEWSLETTER</h3>
             <p className="text-xs text-gray-600">Subscribe for latest updates</p>
           </div>
