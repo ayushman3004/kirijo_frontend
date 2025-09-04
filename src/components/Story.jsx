@@ -1,7 +1,9 @@
 import storyAsam from "../images/storyAsam.png"
 import RevealOnScroll from "../Helper/Animations";
+import Section from "./Section";
 export default function Story() {
   return (
+    <>
     <RevealOnScroll>
     <section className="flex flex-col md:flex-row gap-6 items-center p-8" style={{ fontFamily: '"Poiret One", cursive' }}>
       <div className="md:w-1/2 flex flex-col justify-center items-center text-center">
@@ -15,5 +17,10 @@ export default function Story() {
       </div>
     </section>
     </RevealOnScroll>
+    <hr className="text-pink-300 font-bold" />
+    <RevealOnScroll>
+      <Section />
+    </RevealOnScroll>
+    </>
   );
 }
