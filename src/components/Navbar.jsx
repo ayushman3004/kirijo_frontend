@@ -37,26 +37,27 @@ export default function Navbar() {
       </div>
 
       
-      <div className="flex gap-8 mt-4 text-sm">
-        <Link to="/" className="hover:opacity-70">
-          Home
-        </Link>
-        <Link to="/gift" className="hover:opacity-70">
-          Gift
-        </Link>
-        <Link to="/northeast" className="hover:opacity-70">
-          NorthEast
-        </Link>
-        <Link to="/story" className="hover:opacity-70">
-          Story
-        </Link>
-        <Link to="/collection" className="hover:opacity-70">
-          Collection
-        </Link>
-        <Link to="/craft" className="hover:opacity-70">
-          Craft
-        </Link>
-      </div>
+      <div className="flex w-full justify-evenly items-center mt-4 text-sm">
+  <Link to="/" className="hover:opacity-70">
+    Home
+  </Link>
+  <Link to="/gift" className="hover:opacity-70">
+    Gift
+  </Link>
+  <Link to="/northeast" className="hover:opacity-70">
+    NorthEast
+  </Link>
+  <Link to="/story" className="hover:opacity-70">
+    Story
+  </Link>
+  <Link to="/collection" className="hover:opacity-70">
+    Collection
+  </Link>
+  <Link to="/craft" className="hover:opacity-70">
+    Craft
+  </Link>
+</div>
+
     </nav>
     </>
   );

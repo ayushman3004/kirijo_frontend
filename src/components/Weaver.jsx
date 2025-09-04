@@ -6,6 +6,7 @@ import img4 from "../images/img4.png"
 import img5 from "../images/img5.png"
 import img6 from "../images/img6.png"
 import RevealOnScroll from "../Helper/Animations"
+// import Section from "./Section"
 
 export default function Weavers() {
   return (
@@ -27,7 +28,7 @@ export default function Weavers() {
         </div>
       </section>
       <hr className="text-pink-300 mt-5" />
-
+      
     </div>
 </RevealOnScroll>
 <RevealOnScroll>
@@ -40,7 +41,7 @@ export default function Weavers() {
           ))}
         </div>
       </div>
-      </RevealOnScroll>
+</RevealOnScroll>
     </>
   );
 }
