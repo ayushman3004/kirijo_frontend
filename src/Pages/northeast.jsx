@@ -15,7 +15,6 @@ import saree3 from "../images/saree3.png";
 import saree4 from "../images/saree4.png";
 import saree5 from "../images/saree5.png";
 import saree6 from "../images/saree6.png";
-import saree7 from "../images/saree7.png";
 function Northeast() {
   const sarees = [
     ,

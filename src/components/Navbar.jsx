@@ -4,6 +4,7 @@ import { User, Search } from "lucide-react"; // icons
 import Logo from "./logo";
 
 export default function Navbar() {
+  const isLoggedIn = false;
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
@@ -28,12 +29,20 @@ export default function Navbar() {
 
         {/* Right side */}
         <div className="flex items-center gap-4 text-sm">
-          <User size={18} className="cursor-pointer " />
-          <Search size={18} className="cursor-pointer " />
-          <Link to="/bag" className="font-medium ">
-            बैग
-          </Link>
-        </div>
+      {isLoggedIn ? (
+        <User size={18} className="cursor-pointer" />
+      ) : (
+        <Link to="/login" className="font-medium">
+          Login
+        </Link>
+      )}
+
+      <Search size={18} className="cursor-pointer" />
+
+      <Link to="/bag" className="font-medium">
+        बैग
+      </Link>
+    </div>
       </div>
 
       

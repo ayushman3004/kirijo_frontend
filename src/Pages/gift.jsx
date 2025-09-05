@@ -1,8 +1,10 @@
 import React from 'react'
-
+import Navbar from '../components/Navbar'
 function Gift() {
   return (
-    <div>this is the gift page</div>
+   <>
+   <Navbar />
+   </>
   )
 }
 

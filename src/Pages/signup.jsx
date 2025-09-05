@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { sendOtp, verifyOtp, signup } from "../api/auth";
+import RevealOnScroll from "../Helper/Animations";
 
 function SignUp() {
   const [formData, setFormData] = useState({
@@ -67,12 +68,13 @@ function SignUp() {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-[#F9CDFF]">
+    <div className="flex items-center justify-center min-h-screen bg-[#F9CDFF] relative">
+      <Link to="/" className="absolute top-4 left-4 bg-transparent border border-gray-700/30 text-gray-800 px-4 py-2 rounded-full hover:bg-white/40 hover:border-gray-700/40 transition">Back to Home</Link>
       <div className="w-full max-w-md bg-white rounded-2xl shadow-lg p-8">
         <h2 className="text-2xl font-bold text-center text-gray-800 mb-6">
           Sign Up
         </h2>
-
+        <RevealOnScroll>
         {/* Signup Form */}
         <form onSubmit={sendOtpHandler} className="space-y-5">
           {/* Full Name */}
@@ -130,7 +132,7 @@ function SignUp() {
             {otpSent ? "Resend OTP" : "Send OTP"}
           </button>
         </form>
-
+        </RevealOnScroll>
         {/* OTP Form (shown only if otpSent is true) */}
         {otpSent && (
           <div className="mt-4">
