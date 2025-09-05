@@ -1,23 +1,23 @@
-import { useDebugValue, useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import { BrowserRouter } from 'react-router-dom'
-import SignUp from './components/SignUp'
-import Login from './components/Login'
-import LogoutButton from './components/LogoutButton'
-
+import { Routes, Route } from "react-router-dom";
+import Home from "./Pages/home";
+import Collection from "./Pages/collection";
+import Gift from "./Pages/gift";
+import Story from "./Pages/story";
+import Login from "./Pages/login";
+import Craft from "./Pages/craft";
+import Northeast from "./Pages/northeast";
 function App() {
-  
-
   return (
-    <BrowserRouter>
-    <div>
-      
-      <LogoutButton/>
-    </div>
-    </BrowserRouter>
-  )
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/gift" element={<Gift />} />
+      <Route path="/northeast" element={<Northeast />} />
+      <Route path="/craft" element={<Craft />} />
+      <Route path="/collection" element={<Collection />} />
+      <Route path="/story" element={<Story />} />
+      <Route path="/login" element={<Login/>} />
+    </Routes>
+  );
 }
 
-export default App
+export default App;
