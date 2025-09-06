@@ -1,7 +1,7 @@
 import React from "react";
 import { useCart } from "../Helper/CartContext";
 import { Link } from "react-router-dom";
-import Logo from "../Components/LOGO";
+import Logo from "../components/logo";
 export default function Payment() {
   const { subtotal, shippingFee, total } = useCart();
 
