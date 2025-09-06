@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useCart } from "../Helper/CartContext";
 import { Link, useNavigate } from "react-router-dom";
-import Logo from "../Components/LOGO";
+import Logo from "../components/logo";
 
 export default function Shipping() {
   const { setShippingFee, subtotal } = useCart();

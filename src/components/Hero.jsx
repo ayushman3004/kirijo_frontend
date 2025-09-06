@@ -18,9 +18,9 @@ export default function Hero() {
             <p className="tracking-widest text-lg md:text-2xl lg:text-3xl">
               NEW ARRIVALS
             </p>
-            <button className="mt-4 bg-white text-gray-800 px-6 py-2 text-sm md:text-base rounded">
+            <Link to= "/collection" className="mt-4 bg-white text-gray-800 px-6 py-2 text-sm md:text-base rounded">
               SHOP
-            </button>
+            </Link>
           </div>
         </div>
 
@@ -32,9 +32,8 @@ export default function Hero() {
               Luxury draped delivered everywhere
             </p>
             <Link
-              to="/shop"
-              className="mt-4 bg-white text-gray-800 px-6 py-2 text-sm md:text-base rounded"
-            >
+              to="/collection"
+              className="mt-4 bg-white text-gray-800 px-6 py-2 text-sm md:text-base rounded">
               SHOP
             </Link>
           </div>

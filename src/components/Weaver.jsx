@@ -6,6 +6,7 @@ import img4 from "../images/img4.png"
 import img5 from "../images/img5.png"
 import img6 from "../images/img6.png"
 import RevealOnScroll from "../Helper/Animations"
+import { Link } from "react-router"
 // import Section from "./Section"
 
 export default function Weavers() {
@@ -24,7 +25,7 @@ export default function Weavers() {
           <p className="text-gray-600 text-justify text-xl leading-relaxed" style={{ fontFamily: '"Poiret One", cursive' }}>
             Natural indigo dyeing is a craft that's over 6,000 years old— but despite its long history, it remains remarkably alive. At 11.11 / eleven eleven, we return to this tradition not as revivalists, but as witnesses to its relevance today.
           </p>
-          <button className="mt-6 bg-white border px-6 py-2 tracking-wide">Shop</button>
+          <Link to="/weavers" className="mt-6 bg-white border px-6 py-2 tracking-wide">Shop</Link>
         </div>
       </section>
       <hr className="text-pink-300 mt-5" />

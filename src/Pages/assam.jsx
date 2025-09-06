@@ -1,6 +1,6 @@
 import React from "react";
 import Navbar from "../components/Navbar";
-import craft from "../images/craft.png";
+import assam2 from "../images/assam2.png";
 import Footer from "../components/Footer";
 import RevealOnScroll from "../Helper/Animations";
 import img1 from "../images/img1.png";
@@ -15,7 +15,7 @@ import saree3 from "../images/saree3.png";
 import saree4 from "../images/saree4.png";
 import saree5 from "../images/saree5.png";
 import saree6 from "../images/saree6.png";
-function Craft() {
+function Assam() {
   const sarees = [
     ,
     { src: saree1, name: "ASSAM SILK" },
@@ -30,7 +30,7 @@ function Craft() {
       <Navbar />
       <div className="relative">
         <img
-          src={craft}
+          src={assam2}
           alt="hero1"
           className="w-fit h-[60vh] md:h-[75vh] lg:h-[85vh] object-cover"
         />
@@ -39,7 +39,7 @@ function Craft() {
           style={{ fontFamily: '"Poiret One", cursive' }}
         >
           <p className="tracking-widest text-4xl md:text-6xl lg:text-7xl font-bold">
-            CRAFT
+            ASSAM
           </p>
         </div>
       </div>
@@ -80,4 +80,4 @@ function Craft() {
   );
 }
 
-export default Craft;
+export default Assam;

@@ -4,7 +4,6 @@ import Collection from "./Pages/collection";
 import Gift from "./Pages/gift";
 import Story from "./Pages/story";
 import Login from "./Pages/login";
-// import Login from "./components/Login"
 import Craft from "./Pages/craft";
 import Northeast from "./Pages/northeast";
 import Signup from "./Pages/signup";
@@ -12,8 +11,13 @@ import Bag from "./Pages/bag";
 import Checkout from "./Pages/checkout";
 import Shipping from "./Pages/shipping";
 import Payment from "./Pages/payment";
+import Assam from "./Pages/assam";
+import ScrollToTop from "./components/ScrollTop";
+import Weavers from "./Pages/weavers";
 function App() {
   return (
+    <>
+      <ScrollToTop />
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/gift" element={<Gift />} />
@@ -27,7 +31,10 @@ function App() {
       <Route path="/checkout" element={<Checkout/>} />
       <Route path="/shipping" element={<Shipping/>} />
       <Route path="/payment" element={<Payment/>} />
+      <Route path="/assam" element={<Assam/>} />
+      <Route path="/weavers" element={<Weavers/>} />
     </Routes>
+    </>
   );
 }
 

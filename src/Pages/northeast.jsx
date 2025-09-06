@@ -1,6 +1,6 @@
 import React from "react";
 import Navbar from "../components/Navbar";
-import assam2 from "../images/assam2.png";
+import northeast from "../images/norhteast.png";
 import Footer from "../components/Footer";
 import RevealOnScroll from "../Helper/Animations";
 import img1 from "../images/img1.png";
@@ -30,7 +30,7 @@ function Northeast() {
       <Navbar />
       <div className="relative">
         <img
-          src={assam2}
+          src={northeast}
           alt="hero1"
           className="w-fit h-[60vh] md:h-[75vh] lg:h-[85vh] object-cover"
         />
@@ -39,7 +39,7 @@ function Northeast() {
           style={{ fontFamily: '"Poiret One", cursive' }}
         >
           <p className="tracking-widest text-4xl md:text-6xl lg:text-7xl font-bold">
-            ASSAM
+            NORTHEAST
           </p>
         </div>
       </div>

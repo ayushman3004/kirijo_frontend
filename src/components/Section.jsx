@@ -1,6 +1,6 @@
 import React from "react";
 import Section1 from "../images/section1.webp";
-
+import { Link } from "react-router-dom";
 export default function Section() {
   return (
     <div className="relative">
@@ -19,9 +19,9 @@ export default function Section() {
         <p className="tracking-widest text-lg md:text-2xl lg:text-3xl">
           EXPLORE THE NORTHEAST WITH US
         </p>
-        <button className="mt-4 bg-white text-gray-800 px-6 py-2 text-sm md:text-base rounded">
+        <Link to="/northeast" className="mt-4 bg-white text-gray-800 px-6 py-2 text-sm md:text-base rounded">
           SHOP
-        </button>
+        </Link>
       </div>
     </div>
   );
