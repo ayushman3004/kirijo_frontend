@@ -12,7 +12,7 @@ export default function Footer() {
           <Package className="h-10 w-10 text-gray-700 mb-3" />
           <p className="text-sm font-medium">Complimentary Shipping</p>
           <p className="text-xs text-gray-500">
-            Enjoy free shipping on U.S. orders over $100.
+            Enjoy free shipping on India orders over ₹2499.
           </p>
         </div>
 
@@ -30,7 +30,7 @@ export default function Footer() {
           <MapPin className="h-10 w-10 text-gray-700 mb-3" />
           <p className="text-sm font-medium">Come Say Hi</p>
           <p className="text-xs text-gray-500">
-            We have 11 stores across the U.S.
+            We have our vendors across the NorthEast of India
           </p>
         </div>
       </div>
@@ -50,8 +50,9 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-12 py-10 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-6 text-sm">
-  <div>
+      {/* <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-12 py-10 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-6 text-sm"> */}
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-12 py-10 flex justify-center items-center text-center">
+  {/* <div>
     <p className="font-semibold mb-2">Account</p>
     <ul className="space-y-1 text-gray-600">
       <li>Login</li>
@@ -74,12 +75,12 @@ export default function Footer() {
       <li>Returns</li>
       <li>Payment</li>
     </ul>
-  </div>
+  </div> */}
   <div>
     <p className="font-semibold mb-2">Contact</p>
     <ul className="space-y-1 text-gray-600">
-      <li>care@kirijo.com</li>
-      <li>+91 00000 00000</li>
+      <li>teamkirijo@gmail.com</li>
+      <li>+91 88120-04395</li>
       <li>Mon-Fri 10am-6pm</li>
     </ul>
   </div>
