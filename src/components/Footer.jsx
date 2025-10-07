@@ -1,5 +1,6 @@
 import RevealOnScroll from "../Helper/Animations";
 import { Package, Recycle, MapPin } from "lucide-react";
+import Logo from "./logo";
 export default function Footer() {
   return (
     <RevealOnScroll>
@@ -36,15 +37,16 @@ export default function Footer() {
     </div>
       <div className="bg-[#F9CDFF] mt-10 py-10">
         <div className="max-w-6xl mx-auto px-6 md:px-12">
-          <div className="text-center mb-6">
-            <p className="text-xs tracking-widest " style={{ fontFamily: '"Poiret One", cursive' }}>Be a part of us</p>
-            <h3 className="text-2xl mb-1">NEWSLETTER</h3>
-            <p className="text-xs text-gray-600">Subscribe for latest updates</p>
+          <div className="text-center mb-6 flex-col flex justify-center items-center" >
+            {/* <p className="text-xs tracking-widest " style={{ fontFamily: '"Poiret One", cursive' }}>Be a part of us</p> */}
+            <p className="text-2xl mb-1 text-justify justify-center items-center">This website is currently in the development phase. You can explore our collections for now — the full e-commerce experience is launching soon!</p>
+            {/* <p className="text-xs text-gray-600">Subscribe for latest updates</p> */}
+            <Logo/>
           </div>
-          <form className="flex justify-center gap-2">
+          {/* <form className="flex justify-center gap-2">
             <input type="email" placeholder="Email" className="p-2 rounded border w-64" />
             <button type="submit" className="bg-white px-4 py-2 rounded border">SUBSCRIBE</button>
-          </form>
+          </form> */}
         </div>
       </div>
 
