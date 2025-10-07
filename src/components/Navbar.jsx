@@ -21,7 +21,7 @@ export default function Navbar() {
       >
         <div className="flex justify-between items-center w-full max-w-6xl px-6">
           {/* Left icons */}
-          <div className="flex items-center gap-4"></div>
+          <div className="flex items-center gap-4 w-11"></div>
 
           {/* Logo in center */}
           <div className="flex items-center justify-center">
@@ -30,13 +30,13 @@ export default function Navbar() {
 
           {/* Right side */}
           <div className="flex items-center gap-4 text-sm">
-            {isLoggedIn ? (
+            {/* {isLoggedIn ? (
               <User size={18} className="cursor-pointer" />
-            ) : (
-              <Link to="/login" className="font-medium">
+            ) : ( */}
+              {/* <Link to="/login" className="font-medium"> */}
                 {/* Login */}
-              </Link>
-            )}
+              {/* </Link> */}
+            {/* )} */}
 
             <Search size={18} className="cursor-pointer" />
 
