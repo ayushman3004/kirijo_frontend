@@ -47,7 +47,7 @@ export default function Checkout() {
             </label>
 
             <div className="flex justify-between items-center mt-6">
-              <Link to="/bag" className="text-xs">Return To Cart</Link>
+              <Link to="/cart" className="text-xs">Return To Cart</Link>
               <Link to="/shipping" className="bg-pink-200 px-6 py-3 text-xs">CONTINUE TO SHIPPING</Link>
             </div>
           </section>

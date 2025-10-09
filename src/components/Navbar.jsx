@@ -1,11 +1,13 @@
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { User, Search } from "lucide-react"; // icons
+import { User, Search, ShoppingBag } from "lucide-react"; // icons
 import Logo from "./logo";
+import { useCart } from "../Helper/CartContext";
 // import assam from "../images/storyAssam.png"
 export default function Navbar() {
   const isLoggedIn = false;
   const [visible, setVisible] = useState(false);
+  const { cartCount, openSidebar } = useCart();
 
   useEffect(() => {
     setTimeout(() => setVisible(true), 100);
@@ -40,9 +42,14 @@ export default function Navbar() {
 
             <Search size={18} className="cursor-pointer" />
 
-            <Link to="/bag" className="font-medium">
-              बैग
-            </Link>
+            <button onClick={openSidebar} className="relative">
+              <ShoppingBag size={18} className="cursor-pointer" />
+              {cartCount > 0 && (
+                <span className="absolute -top-2 -right-2 bg-black text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
+                  {cartCount}
+                </span>
+              )}
+            </button>
           </div>
         </div>
 

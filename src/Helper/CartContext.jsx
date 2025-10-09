@@ -1,48 +1,144 @@
-import React, { createContext, useContext, useMemo, useState } from "react";
+import React, { createContext, useContext, useMemo, useState, useEffect } from "react";
 
 const CartContext = createContext(undefined);
 
 export function CartProvider({ children }) {
-  const [items, setItems] = useState([]);
+  const [cartItems, setCartItems] = useState([]);
   const [shippingFee, setShippingFee] = useState(0);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [lastAddedProduct, setLastAddedProduct] = useState(null);
 
-  const addItem = (item) => {
-    setItems((prev) => {
-      const existingIndex = prev.findIndex((p) => p.id === item.id);
-      if (existingIndex !== -1) {
-        const updated = [...prev];
-        updated[existingIndex] = {
-          ...updated[existingIndex],
-          quantity: updated[existingIndex].quantity + (item.quantity || 1),
-        };
-        return updated;
+  // Load cart from localStorage on mount
+  useEffect(() => {
+    const savedCart = localStorage.getItem('kirijo-cart');
+    if (savedCart) {
+      try {
+        setCartItems(JSON.parse(savedCart));
+      } catch (error) {
+        console.error('Error loading cart from localStorage:', error);
       }
-      return [...prev, { ...item, quantity: item.quantity || 1 }];
+    }
+  }, []);
+
+  // Save cart to localStorage whenever cartItems changes
+  useEffect(() => {
+    localStorage.setItem('kirijo-cart', JSON.stringify(cartItems));
+  }, [cartItems]);
+
+  const addToCart = (product) => {
+    setCartItems((prev) => {
+      const existingItem = prev.find((item) => item.id === product.id);
+      if (existingItem) {
+        return prev.map((item) =>
+          item.id === product.id
+            ? { ...item, qty: item.qty + 1 }
+            : item
+        );
+      }
+      return [...prev, { ...product, qty: 1 }];
     });
+    // Store the last added product for background image
+    setLastAddedProduct(product);
+    // Open sidebar when item is added
+    setIsSidebarOpen(true);
   };
 
+  const openSidebar = () => setIsSidebarOpen(true);
+  const closeSidebar = () => setIsSidebarOpen(false);
+
+  const removeFromCart = (id) => {
+    setCartItems((prev) => prev.filter((item) => item.id !== id));
+  };
+
+  const clearCart = () => {
+    setCartItems([]);
+  };
+
+  const incrementQty = (id) => {
+    setCartItems((prev) =>
+      prev.map((item) =>
+        item.id === id ? { ...item, qty: item.qty + 1 } : item
+      )
+    );
+  };
+
+  const decrementQty = (id) => {
+    setCartItems((prev) =>
+      prev.map((item) =>
+        item.id === id && item.qty > 1
+          ? { ...item, qty: item.qty - 1 }
+          : item
+      ).filter((item) => !(item.id === id && item.qty === 1))
+    );
+  };
+
+  // Compatibility functions for existing checkout pages
   const updateQty = (id, delta) => {
-    setItems((prev) =>
-      prev
-        .map((p) => (p.id === id ? { ...p, quantity: Math.max(1, p.quantity + delta) } : p))
-        .filter((p) => p.quantity > 0)
+    setCartItems((prev) =>
+      prev.map((item) =>
+        item.id === id
+          ? { ...item, qty: Math.max(1, item.qty + delta) }
+          : item
+      ).filter((item) => !(item.id === id && item.qty <= 0))
     );
   };
 
   const removeItem = (id) => {
-    setItems((prev) => prev.filter((p) => p.id !== id));
+    setCartItems((prev) => prev.filter((item) => item.id !== id));
   };
 
-  const clear = () => setItems([]);
+  const clear = () => setCartItems([]);
 
-  const subtotal = useMemo(
-    () => items.reduce((sum, p) => sum + (p.price || 0) * (p.quantity || 1), 0),
-    [items]
-  );
+  const totalPrice = useMemo(() => {
+    return cartItems.reduce((total, item) => total + (item.price * item.qty), 0);
+  }, [cartItems]);
 
-  const total = useMemo(() => subtotal + (shippingFee || 0), [subtotal, shippingFee]);
+  const cartCount = useMemo(() => {
+    return cartItems.reduce((total, item) => total + item.qty, 0);
+  }, [cartItems]);
 
-  const value = { items, addItem, updateQty, removeItem, clear, subtotal, shippingFee, setShippingFee, total };
+  // Compatibility properties for existing checkout pages
+  const items = useMemo(() => {
+    return cartItems.map(item => ({
+      ...item,
+      quantity: item.qty
+    }));
+  }, [cartItems]);
+
+  const subtotal = useMemo(() => {
+    return cartItems.reduce((total, item) => total + (item.price * item.qty), 0);
+  }, [cartItems]);
+
+  const total = useMemo(() => {
+    return subtotal + shippingFee;
+  }, [subtotal, shippingFee]);
+
+  const value = {
+    // New API
+    cartItems,
+    addToCart,
+    removeFromCart,
+    clearCart,
+    incrementQty,
+    decrementQty,
+    totalPrice,
+    cartCount,
+    // Sidebar controls
+    isSidebarOpen,
+    openSidebar,
+    closeSidebar,
+    lastAddedProduct,
+    // Compatibility API for existing checkout pages
+    items,
+    subtotal,
+    shippingFee,
+    setShippingFee,
+    total,
+    updateQty,
+    removeItem,
+    clear
+  };
+
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
 }
 

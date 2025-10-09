@@ -45,7 +45,7 @@ export default function Bag() {
             <textarea className="mt-3 w-full border p-2 h-20 text-sm" placeholder="Any special requests?" />
 
             <div className="mt-6 flex items-center justify-between">
-              <Link to="/checkout" className="bg-pink-200 text-gray-800 px-10 py-3 text-xs">CHECK OUT</Link>
+              <Link to="/cart" className="bg-pink-200 text-gray-800 px-10 py-3 text-xs">VIEW CART</Link>
               <div className="text-right">
                 <p className="text-[11px]">INR {subtotal.toLocaleString()}</p>
               </div>

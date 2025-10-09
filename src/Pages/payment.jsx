@@ -1,9 +1,18 @@
 import React from "react";
 import { useCart } from "../Helper/CartContext";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Logo from "../components/logo";
+
 export default function Payment() {
-  const { subtotal, shippingFee, total } = useCart();
+  const { subtotal, shippingFee, total, clearCart } = useCart();
+  const navigate = useNavigate();
+
+  const handleCompleteOrder = () => {
+    // Clear the cart after successful payment
+    clearCart();
+    // Navigate to order success page
+    navigate("/order-success");
+  };
 
   return (
     <div className="min-h-screen bg-white">
@@ -25,7 +34,7 @@ export default function Payment() {
               <input className="border p-3" placeholder="CVC" />
               <input className="border p-3" placeholder="Name on card" />
             </div>
-            <button className="w-full bg-pink-200 py-3 text-xs mt-2">PAY NOW</button>
+            <button onClick={handleCompleteOrder} className="w-full bg-pink-200 py-3 text-xs mt-2">COMPLETE ORDER</button>
           </div>
 
           <Link to="/shipping" className="text-xs inline-block mt-3">Return to Shipping</Link>
